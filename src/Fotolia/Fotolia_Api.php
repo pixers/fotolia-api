@@ -1,7 +1,5 @@
 <?php
 
-namespace Fotolia;
-
 /**
  * Example application using php5 and Zend Framework of using Fotolia API
  *
