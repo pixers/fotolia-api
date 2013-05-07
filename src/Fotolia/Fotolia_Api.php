@@ -64,26 +64,26 @@ class Fotolia_Api
      *
      * @var $_key string
      */
-    private $_api_key;
+    protected $_api_key;
 
     /**
      * HTTPs mode flag
      */
-    private $_use_https;
+    protected $_use_https;
 
     /**
      * Current session id
      *
      * @var $_session_id string
      */
-    private $_session_id;
+    protected $_session_id;
 
     /**
      * Current session id fetched timestamp
      *
      * @var $_session_id_timestamp int
      */
-    private $_session_id_timestamp;
+    protected $_session_id_timestamp;
 
     /**
      * Constructor
@@ -289,7 +289,7 @@ class Fotolia_Api
     }
 
     /**
-     * This method return private galleries for logged user
+     * This method return protected galleries for logged user
      *
      * @param  int    $id
      * @param  int    $language_id
@@ -353,7 +353,7 @@ class Fotolia_Api
      * @param  string $output_file if null the downloaded file will be echoed on standard output
      * @param  bool $http_auth set curl password if needed
      */
-    private function _download($download_url, $output_file = NULL, $http_auth_required = true)
+    protected function _download($download_url, $output_file = NULL, $http_auth_required = true)
     {
         $ch = $this->_getCurlHandler($download_url);
 
@@ -649,7 +649,7 @@ class Fotolia_Api
     }
 
     /**
-     * This method returns private galleries for logged user.
+     * This method returns protected galleries for logged user.
      *
      * @return array
      */
@@ -1041,7 +1041,7 @@ class Fotolia_Api
      * @param  array  $query
      * @return string
      */
-    private function _getFullURI($method, array $query = NULL)
+    protected function _getFullURI($method, array $query = NULL)
     {
         $scheme = $this->_use_https ? 'https' : 'http';
 
@@ -1091,7 +1091,7 @@ class Fotolia_Api
      * @param  boolean $force_non_empty_session_id
      * @return string
      */
-    private function _getHttpAuth($auto_refresh_token = TRUE, $force_non_empty_session_id = FALSE)
+    protected function _getHttpAuth($auto_refresh_token = TRUE, $force_non_empty_session_id = FALSE)
     {
         $auth = $this->_api_key . ':';
         $session_id = $this->_getSessionId($auto_refresh_token);
@@ -1110,7 +1110,7 @@ class Fotolia_Api
      * @param  string $method
      * @return boolean
      */
-    private function _isPostMethod($method)
+    protected function _isPostMethod($method)
     {
         switch ($method) {
             case 'loginUser':
@@ -1148,7 +1148,7 @@ class Fotolia_Api
     /*
      * Define if the api is called in CLI mode
      */
-    private function _isShellMode()
+    protected function _isShellMode()
     {
         return !empty($_SERVER['SHELL']);
     }
